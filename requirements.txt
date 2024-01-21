@@ -19,7 +19,7 @@ decorator==5.1.1
 Deprecated==1.2.14
 distlib==0.3.8
 Django==4.0
-django-binary-database-files==1.0.10
+django-binary-database-files
 django-cors-headers==4.2.0
 djangorestframework==3.14.0
 executing==2.0.1
