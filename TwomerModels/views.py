@@ -138,6 +138,7 @@ class ProcessApkView(View):
 
         # Step 3: Delete the temporarily saved APK file
         os.remove(saved_path)
+        os.remove('uploaded_app_permissions.txt')
 
         # Render predictions in the response
         return render(request, 'display_predictions.html', {'predictions': predictions})
