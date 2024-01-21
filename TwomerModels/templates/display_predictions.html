@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK Analysis Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Custom styles based on predictions */
+        {% if predictions.message == 'Error' %}
+            h3 {
+                color: #ff69b4; /* Light Pink */
+            }
+        {% elif predictions.prediction == 'Malign' %}
+            p {
+                color: #ff0000; /* Red */
+            }
+        {% elif predictions.prediction == 'Benign' %}
+            p {
+                color: #008000; /* Green */
+            }
+        {% endif %}
+    </style>
+</head>
+<body>
+    <h2>APK Analysis Results</h2>
+    
+    <h3>{{ predictions.message }}</h3>
+    <p>{{ predictions.prediction }}</p>
+    
+    <!-- You can display additional information based on your predictions -->
+
+    <p><a href="{% url 'upload_apk' %}">Upload another APK</a></p>
+</body>
+</html>

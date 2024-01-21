@@ -1,0 +1,83 @@
+<!-- myapp/templates/myapp/my_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+    </style>
+    
+</head>
+<body>
+
+<h1>Machine Learning Results</h1>
+
+<h2>Accuracy: {{ accuracy }}</h2>
+
+<h2>Precision-Recall Curve</h2>
+<img src="data:image/png;base64,{{ plot_base64 }}" alt="Precision-Recall Curve">
+
+<h2>ROC Curve</h2>
+<img src="data:image/png;base64,{{ plot_base64 }}" alt="ROC Curve">
+
+<h2>Confusion Matrix</h2>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>Predicted Negative</th>
+        <th>Predicted Positive</th>
+    </tr>
+    <tr>
+        <th>Actual Negative</th>
+        <td>{{ conf_mat.0.0 }}</td>
+        <td>{{ conf_mat.0.1 }}</td>
+    </tr>
+    <tr>
+        <th>Actual Positive</th>
+        <td>{{ conf_mat.1.0 }}</td>
+        <td>{{ conf_mat.1.1 }}</td>
+    </tr>
+</table>
+
+<h2>Classification Report</h2>
+<pre>{{ class_report }}</pre>
+    
+</body>
+</html>
